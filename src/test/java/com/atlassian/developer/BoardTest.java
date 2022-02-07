@@ -1,6 +1,7 @@
 package com.atlassian.developer;
 
 import com.atlassian.developer.dto.board.BoardDTO;
+import com.atlassian.developer.dto.board.MemberService;
 import com.github.javafaker.Faker;
 import org.apache.http.HttpStatus;
 import org.testng.annotations.Test;
@@ -9,7 +10,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class BoadTest {
+public class BoardTest {
 
     @Test
     public void testBoardCreation() {
@@ -29,9 +30,10 @@ public class BoadTest {
                 .extract()
                 .jsonPath()
                 .getList("$", BoardDTO.class);
-        assertT
-    rue(boardList.stream().anyMatch(b -> b.getId().equals(entity.getId())));
+        assertTrue(boardList.stream().anyMatch(b -> b.getId().equals(entity.getId())));
 
+        //To do afterMethod
+        //delete created data
 
     }
 }

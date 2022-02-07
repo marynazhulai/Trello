@@ -16,9 +16,9 @@ import org.apache.http.HttpHeaders;
 public class BaseService {
 
     //TO FIX
-    private static final String TRELLO_API_KEY = "";
-    private static final String TRELLO_API_TOKEN = "";
-    private static final String AUTH_HEADER_RORMAT = "";
+    private static final String TRELLO_API_KEY = "220b2b86c6fd3d6377c24c134c778338";
+    private static final String TRELLO_API_TOKEN = "0f7b7284bfff5589cfd59f555810753481364189080cb3a287357b2825b8b022\n";
+    private static final String AUTH_HEADER_RORMAT = "OAuth oauth_consumer_key=\"%s\", oauth_token=\"%s\"";
     //TO FIX
 
      protected RequestSpecification getBaseRequestSpecification() {
@@ -35,5 +35,4 @@ public class BaseService {
                             return new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,false);
                         })));
     }
-
 }

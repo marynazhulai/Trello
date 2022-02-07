@@ -10,6 +10,4 @@ public class BoardService extends BaseService {
                 .post("/1/boards/")
                 .then();
     }
-
-
 }
