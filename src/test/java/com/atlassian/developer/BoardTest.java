@@ -1,7 +1,6 @@
 package com.atlassian.developer;
 
 import com.atlassian.developer.dto.board.BoardDTO;
-import com.atlassian.developer.dto.board.MemberService;
 import com.github.javafaker.Faker;
 import org.apache.http.HttpStatus;
 import org.testng.annotations.Test;
@@ -23,7 +22,7 @@ public class BoardTest {
                 .body()
                 .as(BoardDTO.class);
         assertNotNull(entity.getId());
-        assertEquals(entity.getName(),name, "Name not match");
+        assertEquals(entity.getName(), name, "Name not match");
         final List<BoardDTO> boardList = new MemberService().getMemberBoards()
                 .assertThat()
                 .statusCode(HttpStatus.SC_OK)
@@ -31,9 +30,5 @@ public class BoardTest {
                 .jsonPath()
                 .getList("$", BoardDTO.class);
         assertTrue(boardList.stream().anyMatch(b -> b.getId().equals(entity.getId())));
-
-        //To do afterMethod
-        //delete created data
-
     }
 }

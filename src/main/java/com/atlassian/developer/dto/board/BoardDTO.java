@@ -4,16 +4,16 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class BoardDTO {
 
-    @JsonProperty ("id")
+    @JsonProperty("id")
     private String id;
 
-    @JsonProperty ("name")
+    @JsonProperty("name")
     private String name;
 
-    @JsonProperty ("url")
+    @JsonProperty("url")
     private String url;
 
-    @JsonProperty ("prefs")
+    @JsonProperty("prefs")
     private BoardPrefsDTO prefsDTO;
 
     public String getId() {

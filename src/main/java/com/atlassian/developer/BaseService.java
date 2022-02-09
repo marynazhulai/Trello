@@ -15,16 +15,14 @@ import org.apache.http.HttpHeaders;
 
 public class BaseService {
 
-    //TO FIX
     private static final String TRELLO_API_KEY = "220b2b86c6fd3d6377c24c134c778338";
-    private static final String TRELLO_API_TOKEN = "0f7b7284bfff5589cfd59f555810753481364189080cb3a287357b2825b8b022\n";
+    private static final String TRELLO_API_TOKEN = "0f7b7284bfff5589cfd59f555810753481364189080cb3a287357b2825b8b022";
     private static final String AUTH_HEADER_RORMAT = "OAuth oauth_consumer_key=\"%s\", oauth_token=\"%s\"";
-    //TO FIX
 
-     protected RequestSpecification getBaseRequestSpecification() {
+    protected RequestSpecification getBaseRequestSpecification() {
         return RestAssured.given()
-                          .baseUri("https://api.trello.com/")
-                          .contentType(ContentType.JSON)
+                .baseUri("https://api.trello.com/")
+                .contentType(ContentType.JSON)
                 .header(HttpHeaders.AUTHORIZATION, String.format(AUTH_HEADER_RORMAT, TRELLO_API_KEY, TRELLO_API_TOKEN))
                 .filter(new RequestLoggingFilter())
                 .filter(new ResponseLoggingFilter())
@@ -32,7 +30,7 @@ public class BaseService {
                 .config(RestAssuredConfig.config().objectMapperConfig(
                         new ObjectMapperConfig(ObjectMapperType.JACKSON_2)
                                 .jackson2ObjectMapperFactory((type, s) -> {
-                                    return new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,false);
-                        })));
+                                    return new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+                                })));
     }
 }
