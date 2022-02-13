@@ -1,5 +1,5 @@
 package com.atlassian.developer.dto.board;
 
-public class BoardRequestDTO {
+public class BoardRequestParamsDTO {
 
 }

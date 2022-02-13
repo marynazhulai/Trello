@@ -15,20 +15,20 @@ public class BoardTest {
     public void testBoardCreation() {
         final BoardService boardService = new BoardService();
         final String name = Faker.instance().funnyName().name();
-        final BoardDTO entity = boardService.createBoard(name)
+        final BoardDTO board = boardService.createBoard(name)
                 .assertThat()
                 .statusCode(HttpStatus.SC_OK)
                 .extract()
                 .body()
                 .as(BoardDTO.class);
-        assertNotNull(entity.getId());
-        assertEquals(entity.getName(), name, "Name not match");
+        assertNotNull(board.getId());
+        assertEquals(board.getName(), name, "Name not match");
         final List<BoardDTO> boardList = new MemberService().getMemberBoards()
                 .assertThat()
                 .statusCode(HttpStatus.SC_OK)
                 .extract()
                 .jsonPath()
                 .getList("$", BoardDTO.class);
-        assertTrue(boardList.stream().anyMatch(b -> b.getId().equals(entity.getId())));
+        assertTrue(boardList.stream().anyMatch(b -> b.getId().equals(board.getId())));
     }
 }

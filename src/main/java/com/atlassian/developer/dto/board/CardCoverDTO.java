@@ -4,21 +4,15 @@ public class CardCoverDTO {
 
     private String idAttachment;
 
-    private String color;
+    private Color color;
 
 
-    public String getColor() {
+    public Color getColor() {
         return color;
     }
 
-    public void setColor(final String color) {
-        switch (color) {
-            case "yellow":
-            case "blue":
-                this.color = color;
-                break;
-            default:
-                System.out.println("Incorrect color");
-        }
+    public void setColor(final Color color) {
+        this.color = color;
     }
 }
+

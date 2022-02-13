@@ -1,6 +1,7 @@
 package com.atlassian.developer;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
@@ -19,6 +20,7 @@ public class BaseService {
     private static final String TRELLO_API_TOKEN = "0f7b7284bfff5589cfd59f555810753481364189080cb3a287357b2825b8b022";
     private static final String AUTH_HEADER_RORMAT = "OAuth oauth_consumer_key=\"%s\", oauth_token=\"%s\"";
 
+
     protected RequestSpecification getBaseRequestSpecification() {
         return RestAssured.given()
                 .baseUri("https://api.trello.com/")
@@ -30,7 +32,8 @@ public class BaseService {
                 .config(RestAssuredConfig.config().objectMapperConfig(
                         new ObjectMapperConfig(ObjectMapperType.JACKSON_2)
                                 .jackson2ObjectMapperFactory((type, s) -> {
-                                    return new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+                                    return new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+                                    .configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_ENUMS, true);
                                 })));
     }
 }

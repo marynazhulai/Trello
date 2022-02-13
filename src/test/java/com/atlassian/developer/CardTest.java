@@ -1,6 +1,7 @@
 package com.atlassian.developer;
 
 import com.atlassian.developer.dto.board.CardDTO;
+import com.atlassian.developer.dto.board.ListService;
 import org.apache.http.HttpStatus;
 import org.testng.annotations.Test;
 
@@ -8,7 +9,8 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class CardTest {
+public class
+CardTest {
 
     @Test
     public void testCardCreation() {
@@ -23,7 +25,7 @@ public class CardTest {
                 .as(CardDTO.class);
         assertNotNull(entity.getIdList());
         assertEquals(entity.getIdList(), idList, "Card ID not match");
-        final List<CardDTO> cardList = new MemberService().getMemberCards()
+        final List<CardDTO> cardList = new ListService().getMemberCards()
                 .assertThat()
                 .statusCode(HttpStatus.SC_OK)
                 .extract()
