@@ -10,4 +10,11 @@ public class BoardService extends BaseService {
                 .post("/1/boards/")
                 .then();
     }
+
+    public ValidatableResponse deleteBoard(final String id) {
+        return getBaseRequestSpecification()
+                .pathParam("id",id)
+                .delete("/1/boards/{id}")
+                .then();
+    }
 }

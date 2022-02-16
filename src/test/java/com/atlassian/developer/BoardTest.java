@@ -11,6 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class BoardTest {
 
+
     @Test
     public void testBoardCreation() {
         final BoardService boardService = new BoardService();

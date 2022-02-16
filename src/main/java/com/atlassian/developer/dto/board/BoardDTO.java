@@ -16,6 +16,9 @@ public class BoardDTO {
     @JsonProperty("prefs")
     private BoardPrefsDTO prefsDTO;
 
+    @JsonProperty("lists")
+    private ListsDTO listsDTO;
+
     public String getId() {
         return id;
     }

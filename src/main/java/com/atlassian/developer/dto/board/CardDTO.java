@@ -36,4 +36,9 @@ public class CardDTO {
     public String getCardName() {
         return name;
     }
+
+    /*public void getCardCoverColor(Color color) {
+        return cover.setColor(Color color);
+    }*/
 }
+
