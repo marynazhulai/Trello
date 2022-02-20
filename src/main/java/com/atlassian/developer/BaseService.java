@@ -3,6 +3,7 @@ package com.atlassian.developer;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import io.restassured.config.ObjectMapperConfig;
@@ -33,7 +34,8 @@ public class BaseService {
                         new ObjectMapperConfig(ObjectMapperType.JACKSON_2)
                                 .jackson2ObjectMapperFactory((type, s) -> {
                                     return new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
-                                    .configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_ENUMS, true);
+                                            .configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_ENUMS, true)
+                                            .configure(SerializationFeature.WRAP_ROOT_VALUE, true);
                                 })));
     }
 }

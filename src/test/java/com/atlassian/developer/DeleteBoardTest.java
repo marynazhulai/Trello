@@ -5,7 +5,7 @@ import org.apache.hc.core5.http.HttpStatus;
 import org.testng.annotations.Test;
 
 public class DeleteBoardTest {
-    public String boardId = "620cc0ea346f8d3dffcb048b";
+    public String boardId = "620d19a0ca8bef43cd36f624";
 
     @Test
     public void deleteBoard() {

@@ -48,7 +48,8 @@ public class UpdateCardName {
                 .extract()
                 .body()
                 .as(CardDTO.class);
-        assertNotNull(card.getId());
-        assertEquals(card.getCardName(), "First card", "Card name not match");
+        assertNotNull(updateCard.getId());
+        assertEquals(card.getId(), updateCard.getId(), "ID not matched");
+        assertEquals(updateCard.getCardName(), "First card", "Card name not match");
     }
 }

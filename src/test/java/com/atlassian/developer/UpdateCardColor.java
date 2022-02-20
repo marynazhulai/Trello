@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.testng.Assert.assertEquals;
 
 public class UpdateCardColor {
     @Test
@@ -41,19 +42,17 @@ public class UpdateCardColor {
                 .as(CardDTO.class);
         assertNotNull(card.getId());
 
-        final CardCoverDTO hh = new CardCoverDTO();
+        final CardCoverDTO cardCover = new CardCoverDTO();
+        cardCover.setColor(Color.BLUE);
 
-        /*final CardDTO updateColor = cardService.updateCardColor(card.getId(),  card.getCardCoverColor(Color color));
+        final CardDTO updateColor = cardService.updateCardCover(card.getId(), cardCover)
                 .assertThat()
                 .statusCode(HttpStatus.SC_OK)
                 .extract()
                 .body()
                 .as(CardDTO.class);
         assertNotNull(card.getId());
-        assertEquals(card.getCardCoverColor(), "blue", "Card color not match");*/
-
-
-
+       assertEquals(updateColor.getCover().getColor(), Color.BLUE, "Card color not match");
     }
 
 }

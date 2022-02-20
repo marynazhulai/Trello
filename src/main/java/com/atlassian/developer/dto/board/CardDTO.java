@@ -37,8 +37,13 @@ public class CardDTO {
         return name;
     }
 
-    /*public void getCardCoverColor(Color color) {
-        return cover.setColor(Color color);
-    }*/
+
+    public CardCoverDTO getCover() {
+        return cover;
+    }
+
+    public void setCover(CardCoverDTO cover) {
+        this.cover = cover;
+    }
 }
 

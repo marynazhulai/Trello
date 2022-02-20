@@ -1,6 +1,6 @@
 package com.atlassian.developer;
 
-import com.atlassian.developer.dto.board.Color;
+import com.atlassian.developer.dto.board.CardCoverDTO;
 import io.restassured.response.ValidatableResponse;
 
 public class CardService extends BaseService {
@@ -12,10 +12,10 @@ public class CardService extends BaseService {
                 .then();
     }
 
-    public ValidatableResponse updateCardColor(final String id, Color color) {
+    public ValidatableResponse updateCardCover(final String id, CardCoverDTO body) {
         return getBaseRequestSpecification()
                 .pathParam("id", id)
-                .queryParams("color", color)
+                .body(body)
                 .put("/1/cards/{id}")
                 .then();
     }
