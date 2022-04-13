@@ -1,20 +1,16 @@
 package com.atlassian.developer;
-
 import com.atlassian.developer.dto.board.BoardDTO;
 import com.github.javafaker.Faker;
 import org.apache.http.HttpStatus;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class BaseTest {
     static BoardDTO board;
 
-
-    @BeforeClass
+    @BeforeMethod
     public void createBoard() {
         final BoardService boardService = new BoardService();
         final String name = Faker.instance().funnyName().name();
@@ -35,16 +31,16 @@ public class BaseTest {
         assertTrue(boardList.stream().anyMatch(b -> b.getId().equals(board.getId())));
     }
 
-    @AfterClass
+    @AfterMethod
     public void deleteBoard() {
         final BoardService boardService = new BoardService();
-
-        final BoardDTO deleteBoard = boardService.deleteBoard(board.getId())
-                .assertThat()
-                .statusCode(org.apache.hc.core5.http.HttpStatus.SC_OK)
-                .extract()
-                .body()
-                .as(BoardDTO.class);
+        if (board.getId() != null) {
+            final BoardDTO deleteBoard = boardService.deleteBoard(board.getId())
+                    .assertThat()
+                    .statusCode(org.apache.hc.core5.http.HttpStatus.SC_OK)
+                    .extract()
+                    .body()
+                    .as(BoardDTO.class);
+        }
     }
-
 }

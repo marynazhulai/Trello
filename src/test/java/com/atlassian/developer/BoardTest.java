@@ -1,16 +1,12 @@
 package com.atlassian.developer;
-
 import com.atlassian.developer.dto.board.BoardDTO;
 import com.github.javafaker.Faker;
 import org.apache.http.HttpStatus;
 import org.testng.annotations.Test;
-
 import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 
-public class BoardTest extends BaseTest{
-
+public class BoardTest extends BaseTest {
 
     @Test
     public void testBoardCreation() {
