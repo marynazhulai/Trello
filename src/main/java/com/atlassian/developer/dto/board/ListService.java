@@ -9,8 +9,6 @@ public class ListService extends BaseService {
     private static final String CURRENT_LIST_ID = "62018f429e16615232ad0c0b";
     private static final String CURRENT_BOARD_ID = "620952c7dc2b8a03a6384e53";
 
-
-   // витягнути лісти з борди???
     public ValidatableResponse getMemberLists() {
         return getMemberLists(CURRENT_USER_ID);
     }
@@ -21,7 +19,6 @@ public class ListService extends BaseService {
                 .get("/1/boards/{id}/lists")
                 .then();
     }
-
 
     public ValidatableResponse getMemberCards() {
         return getMemberCards(CURRENT_USER_ID);

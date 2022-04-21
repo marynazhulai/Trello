@@ -15,10 +15,6 @@ public class ListsDTO {
         return list.get(0).getId();
     }
 
-    /*public ListsDTO getIdList (List<ListsDTO> list) {
-        return list.get(0);
-    }*/
-
     public String getId () {
         return id;
     }
