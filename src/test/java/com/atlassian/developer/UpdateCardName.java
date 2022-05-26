@@ -1,18 +1,16 @@
 package com.atlassian.developer;
-
-import com.atlassian.developer.business.object.CardBO;
 import com.atlassian.developer.business.object.ListsBO;
-import com.atlassian.developer.dto.board.CardDTO;
 import com.atlassian.developer.dto.board.ListsDTO;
+import com.atlassian.developer.business.object.CardBO;
+import com.atlassian.developer.dto.board.CardDTO;
 import org.apache.http.HttpStatus;
 import org.testng.annotations.Test;
-
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.testng.Assert.assertEquals;
 
 public class UpdateCardName extends BaseTest {
     @Test
-    public void testCardCreation() {
+    public void testUpdateCardName() {
         final CardService cardService = new CardService();
 
         final ListsBO listsBO = new ListsBO(board);
